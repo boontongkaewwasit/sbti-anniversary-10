@@ -264,6 +264,7 @@ submitBtn.textContent = 'Draw my number';
 function errorMessage(code){
 if (code === 'sold_out') return 'All numbers have been claimed. Thanks for your interest!';
 if (code === 'missing_fields') return 'Enter your name and phone number to continue.';
+  if (code === 'duplicate_phone') return 'This phone number is already registered. Each phone number can only register once.';
 return 'Something went wrong on our end. Please try again.';
 }
 
