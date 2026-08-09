@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>SBTI Anniversary 10 · Prize Draw</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1C1C1E;
+    --ink-soft:#6B6A66;
+    --page:#F5F6F3;
+    --card:#FFFFFF;
+    --line:#E4E2DC;
+    --line-dash:#D8D6CE;
+    --red:#DC2F3F;
+    --yellow:#EFB61D;
+    --blue:#2F6FED;
+    --green:#1E9E5A;
+  }
+  *{ box-sizing:border-box; }
+  body{
+    margin:0;
+    min-height:100vh;
+    background:var(--page);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:32px 16px;
+  }
+  .page{ width:100%; max-width:440px; }
+  .ticket{
+    position:relative;
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:20px;
+    box-shadow:0 1px 3px rgba(0,0,0,.04), 0 12px 28px rgba(0,0,0,.06);
+    overflow:hidden;
+  }
+  .view{ animation:reveal .35s ease-out; }
+  .view--hidden{ display:none; }
+  @keyframes reveal{ from{ opacity:0; transform:translateY(6px);} to{ opacity:1; transform:translateY(0);} }
+  @media (prefers-reduced-motion: reduce){ .view{ animation:none; } }
+
+  .stub{ padding:28px 32px 22px; text-align:left; }
+  .eyebrow{
+    font-family:'Space Mono', monospace;
+    font-size:11px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin:0;
+  }
+  .eyebrow--onColor{ color:rgba(255,255,255,.85); }
+  .event-name{ font-size:22px; font-weight:700; margin:6px 0 0; }
+  .event-tagline{ font-size:14px; color:var(--ink-soft); margin:4px 0 0; }
+
+  .divider{ position:relative; height:0; border-top:2px dashed var(--line-dash); }
+  .notch{ position:absolute; width:26px; height:26px; border-radius:50%; background:var(--page); top:-13px; }
+  .notch--left{ left:-13px; }
+  .notch--right{ right:-13px; }
+
+  .body{ padding:26px 32px 34px; text-align:center; }
+
+  .form-error{ color:var(--red); font-size:13px; min-height:18px; margin:0 0 12px; }
+
+  .btn{
+    width:100%; padding:14px 18px; border-radius:10px; border:none;
+    background:var(--ink); color:#fff; font-family:'Inter', sans-serif;
+    font-weight:600; font-size:15px; cursor:pointer;
+    transition:transform .1s ease, background .15s ease, opacity .15s ease;
+  }
+  .btn:hover{ background:#000; }
+  .btn:active{ transform:scale(0.98); }
+  .btn:disabled{ opacity:.6; cursor:default; transform:none; }
+
+  .result-stub{ text-align:center; padding:30px 32px; }
+  .color-name{
+    font-family:'Space Mono', monospace; font-weight:700; font-size:28px;
+    letter-spacing:.1em; color:#fff; margin:4px 0 0;
+  }
+  .result-status{ font-size:14px; color:var(--ink-soft); margin:0 0 20px; }
+  .number-label, .holder-label{
+    font-family:'Space Mono', monospace; font-size:12px; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--ink-soft); margin:0;
+  }
+  .big-number{
+    font-family:'Space Mono', monospace; font-weight:700; font-size:72px;
+    color:var(--ink); line-height:1; margin:4px 0 22px;
+  }
+  .holder-name{ font-size:20px; font-weight:600; margin:2px 0 20px; }
+  .serial{
+    font-family:'Space Mono', monospace; font-size:12px; color:var(--ink-soft);
+    letter-spacing:.05em; margin:0 0 24px;
+  }
+
+  @media (max-width:380px){
+    .big-number{ font-size:60px; }
+    .stub, .body{ padding-left:24px; padding-right:24px; }
+  }
+</style>
+</head>
+<body>
+  <div class="page">
+    <div class="ticket" id="ticket">
+
+      <!-- READY VIEW -->
+      <div class="view" id="view-ready">
+        <div class="stub">
+          <p class="eyebrow">SBTI Anniversary 10 · Prize Draw</p>
+          <h1 class="event-name">Draw a Winner</h1>
+          <p class="event-tagline">Tap below to reveal the next winner</p>
+        </div>
+        <div class="divider"><span class="notch notch--left"></span><span class="notch notch--right"></span></div>
+        <div class="body">
+          <p class="form-error" id="drawError" role="alert" aria-live="polite"></p>
+          <button class="btn" id="drawBtn">Draw winner</button>
+        </div>
+      </div>
+
+      <!-- WINNER VIEW -->
+      <div class="view view--hidden" id="view-winner">
+        <div class="stub result-stub" id="colorBand">
+          <p class="eyebrow eyebrow--onColor">Winning color</p>
+          <p class="color-name" id="colorName">RED</p>
+        </div>
+        <div class="divider"><span class="notch notch--left"></span><span class="notch notch--right"></span></div>
+        <div class="body">
+          <p class="result-status">We have a winner.</p>
+          <p class="number-label">No.</p>
+          <p class="big-number" id="bigNumber">37</p>
+          <p class="holder-label">Name</p>
+          <p class="holder-name" id="holderName">—</p>
+          <p class="serial" id="serialTel">TEL —</p>
+          <button class="btn" id="drawAgainBtn">Draw another winner</button>
+        </div>
+      </div>
+
+      <!-- EMPTY VIEW -->
+      <div class="view view--hidden" id="view-empty">
+        <div class="stub">
+          <p class="eyebrow">SBTI Anniversary 10 · Prize Draw</p>
+          <h1 class="event-name">All done</h1>
+          <p class="event-tagline">Every registered entry has already won.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+<script>
+  const CONFIG = {
+    SCRIPT_URL: 'https://script.google.com/macros/s/AKfycbypzQRr-uMbIfQN72y97Id3raWWoJ8tNNphPv_ACemftj54UNrM3_oEhfhLI_HBNAwO/exec'
+  };
+  const COLOR_HEX = { Red:'#DC2F3F', Yellow:'#EFB61D', Blue:'#2F6FED', Green:'#1E9E5A' };
+
+  const drawBtn = document.getElementById('drawBtn');
+  const drawAgainBtn = document.getElementById('drawAgainBtn');
+  const drawError = document.getElementById('drawError');
+
+  function showView(id){
+    ['view-ready','view-winner','view-empty'].forEach(v => {
+      document.getElementById(v).classList.toggle('view--hidden', v !== id);
+    });
+  }
+
+  async function draw(){
+    drawError.textContent = '';
+    drawBtn.disabled = true;
+    drawBtn.textContent = 'Drawing…';
+    try{
+      const res = await fetch(CONFIG.SCRIPT_URL + '?action=draw');
+      const data = await res.json();
+      if (data.error === 'no_eligible_entries'){
+        showView('view-empty');
+        return;
+      }
+      if (data.error){
+        drawError.textContent = 'Something went wrong. Please try again.';
+        drawBtn.disabled = false;
+        drawBtn.textContent = 'Draw winner';
+        return;
+      }
+      showWinner(data);
+    } catch(err){
+      drawError.textContent = "Couldn't reach the registration sheet. Check your connection and try again.";
+      drawBtn.disabled = false;
+      drawBtn.textContent = 'Draw winner';
+    }
+  }
+
+  function showWinner(data){
+    const hex = COLOR_HEX[data.color];
+    document.getElementById('colorBand').style.background = hex;
+    document.getElementById('colorName').textContent = data.color.toUpperCase();
+    document.getElementById('bigNumber').textContent = String(data.number).padStart(2,'0');
+    document.getElementById('holderName').textContent = data.name;
+    document.getElementById('serialTel').textContent = 'TEL ' + data.telMasked;
+    showView('view-winner');
+    drawBtn.disabled = false;
+    drawBtn.textContent = 'Draw winner';
+  }
+
+  drawBtn.addEventListener('click', draw);
+  drawAgainBtn.addEventListener('click', draw);
+</script>
+</body>
+</html>
