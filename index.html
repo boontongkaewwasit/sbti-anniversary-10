@@ -1,435 +1,403 @@
 <!DOCTYPE html>
-  <html lang="en">
-  <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-  <title>SBTI Anniversary 10</title>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>SBTI Anniversary 10</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
   :root{
-  --ink:#1C1C1E;
---ink-soft:#6B6A66;
---page:#F5F6F3;
-  --card:#FFFFFF;
-  --line:#E4E2DC;
-  --line-dash:#D8D6CE;
-  --red:#DC2F3F;
-  --yellow:#EFB61D;
-  --blue:#2F6FED;
---green:#1E9E5A;
-}
-*{ box-sizing:border-box; }
-body{
-  margin:0;
-min-height:100vh;
-background:var(--page);
-color:var(--ink);
-font-family:'Inter', sans-serif;
-display:flex;
-align-items:center;
-justify-content:center;
-padding:32px 16px;
-}
-.page{ width:100%; max-width:440px; }
-.ticket{
-  position:relative;
-background:var(--card);
-border:1px solid var(--line);
-border-radius:20px;
-box-shadow:0 1px 3px rgba(0,0,0,.04), 0 12px 28px rgba(0,0,0,.06);
-overflow:hidden;
-}
-.view{ animation:reveal .35s ease-out; }
-.view--hidden{ display:none; }
-@keyframes reveal{ from{ opacity:0; transform:translateY(6px);} to{ opacity:1; transform:translateY(0);} }
-@media (prefers-reduced-motion: reduce){ .view{ animation:none; } }
+    --ink:#1C1C1E;
+    --ink-soft:#6B6A66;
+    --page:#F5F6F3;
+    --card:#FFFFFF;
+    --line:#E4E2DC;
+    --line-dash:#D8D6CE;
+    --red:#DC2F3F;
+  }
+  *{ box-sizing:border-box; }
+  body{
+    margin:0;
+    min-height:100vh;
+    background:var(--page);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:32px 16px;
+  }
+  .page{ width:100%; max-width:440px; }
+  .ticket{
+    position:relative;
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:20px;
+    box-shadow:0 1px 3px rgba(0,0,0,.04), 0 12px 28px rgba(0,0,0,.06);
+    overflow:hidden;
+  }
+  .view{ animation:reveal .35s ease-out; }
+  .view--hidden{ display:none; }
+  @keyframes reveal{ from{ opacity:0; transform:translateY(6px);} to{ opacity:1; transform:translateY(0);} }
+  @media (prefers-reduced-motion: reduce){ .view{ animation:none; } }
 
-.stub{ padding:28px 32px 22px; text-align:left; }
-.eyebrow{
-  font-family:'Space Mono', monospace;
-font-size:11px;
-letter-spacing:.14em;
-text-transform:uppercase;
-color:var(--ink-soft);
-margin:0;
-}
-.eyebrow--onColor{ color:rgba(255,255,255,.85); }
-.event-name{ font-size:22px; font-weight:700; margin:6px 0 0; }
-.event-tagline{ font-size:14px; color:var(--ink-soft); margin:4px 0 0; }
+  .stub{ padding:28px 32px 22px; text-align:left; }
+  .eyebrow{
+    font-family:'Space Mono', monospace;
+    font-size:11px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin:0;
+  }
+  .event-name{ font-size:22px; font-weight:700; margin:6px 0 0; }
+  .event-tagline{ font-size:14px; color:var(--ink-soft); margin:4px 0 0; }
 
-.divider{ position:relative; height:0; border-top:2px dashed var(--line-dash); }
-.notch{ position:absolute; width:26px; height:26px; border-radius:50%; background:var(--page); top:-13px; }
-.notch--left{ left:-13px; }
-.notch--right{ right:-13px; }
+  .divider{ position:relative; height:0; border-top:2px dashed var(--line-dash); }
+  .notch{ position:absolute; width:26px; height:26px; border-radius:50%; background:var(--page); top:-13px; }
+  .notch--left{ left:-13px; }
+  .notch--right{ right:-13px; }
 
-.body{ padding:26px 32px 34px; }
+  .body{ padding:26px 32px 34px; }
 
-.field{ display:block; margin-bottom:18px; }
-.field-label{
-  display:block; font-size:12px; font-weight:600; letter-spacing:.04em;
-text-transform:uppercase; color:var(--ink-soft); margin-bottom:6px;
-}
-input{
-  width:100%; border:none; border-bottom:2px solid var(--line);
-background:transparent; font-family:'Inter', sans-serif; font-size:17px;
-color:var(--ink); padding:8px 2px; outline:none; transition:border-color .15s;
-}
-input:focus{ border-color:var(--ink); }
-.form-error{ color:var(--red); font-size:13px; min-height:18px; margin:-6px 0 12px; }
+  .field{ display:block; margin-bottom:18px; }
+  .field-label{
+    display:block; font-size:12px; font-weight:600; letter-spacing:.04em;
+    text-transform:uppercase; color:var(--ink-soft); margin-bottom:6px;
+  }
+  input{
+    width:100%; border:none; border-bottom:2px solid var(--line);
+    background:transparent; font-family:'Inter', sans-serif; font-size:17px;
+    color:var(--ink); padding:8px 2px; outline:none; transition:border-color .15s;
+  }
+  input:focus{ border-color:var(--ink); }
+  .form-error{ color:var(--red); font-size:13px; min-height:18px; margin:-6px 0 12px; }
 
-.btn{
-  width:100%; padding:14px 18px; border-radius:10px; border:none;
-background:var(--ink); color:#fff; font-family:'Inter', sans-serif;
-font-weight:600; font-size:15px; cursor:pointer;
-transition:transform .1s ease, background .15s ease, opacity .15s ease;
-}
-.btn:hover{ background:#000; }
-.btn:active{ transform:scale(0.98); }
-.btn:disabled{ opacity:.6; cursor:default; transform:none; }
-.btn--ghost{ background:transparent; color:var(--ink-soft); margin-top:10px; border:1px solid var(--line); }
-.btn--ghost:hover{ background:rgba(0,0,0,.03); }
+  .btn{
+    width:100%; padding:14px 18px; border-radius:10px; border:none;
+    background:var(--ink); color:#fff; font-family:'Inter', sans-serif;
+    font-weight:600; font-size:15px; cursor:pointer;
+    transition:transform .1s ease, background .15s ease, opacity .15s ease;
+  }
+  .btn:hover{ background:#000; }
+  .btn:active{ transform:scale(0.98); }
+  .btn:disabled{ opacity:.6; cursor:default; transform:none; }
+  .btn--ghost{ background:transparent; color:var(--ink-soft); margin-top:10px; border:1px solid var(--line); }
+  .btn--ghost:hover{ background:rgba(0,0,0,.03); }
 
-.capacity{
-  text-align:center; font-family:'Space Mono', monospace; font-size:12px;
-letter-spacing:.03em; color:var(--ink-soft); margin:16px 0 0;
-}
-.footnote{
-  text-align:center; font-size:12px; color:var(--ink-soft);
-max-width:320px; margin:18px auto 0;
-}
+  .capacity{
+    text-align:center; font-family:'Space Mono', monospace; font-size:12px;
+    letter-spacing:.03em; color:var(--ink-soft); margin:16px 0 0;
+  }
+  .footnote{
+    text-align:center; font-size:12px; color:var(--ink-soft);
+    max-width:320px; margin:18px auto 0;
+  }
 
-.result-stub{ text-align:center; padding:30px 32px; }
-.color-name{
-  font-family:'Space Mono', monospace; font-weight:700; font-size:28px;
-letter-spacing:.1em; color:#fff; margin:4px 0 0;
-}
-.result-status{ font-size:14px; color:var(--ink-soft); margin:0 0 20px; }
-.number-label, .holder-label{
-  font-family:'Space Mono', monospace; font-size:12px; letter-spacing:.1em;
-text-transform:uppercase; color:var(--ink-soft); margin:0;
-}
-.big-number{
-  font-family:'Space Mono', monospace; font-weight:700; font-size:72px;
-color:var(--ink); line-height:1; margin:4px 0 22px;
-}
-.holder-name{ font-size:20px; font-weight:600; margin:2px 0 20px; }
-.serial{
-  font-family:'Space Mono', monospace; font-size:12px; color:var(--ink-soft);
-letter-spacing:.05em; margin:0 0 24px;
-}
-.result-actions{ display:flex; flex-direction:column; gap:0; }
+  .number-label, .holder-label{
+    font-family:'Space Mono', monospace; font-size:12px; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--ink-soft); margin:0;
+  }
+  .big-number{
+    font-family:'Space Mono', monospace; font-weight:700; font-size:72px;
+    color:var(--ink); line-height:1; margin:4px 0 22px;
+  }
+  .holder-name{ font-size:20px; font-weight:600; margin:2px 0 20px; }
+  .serial{
+    font-family:'Space Mono', monospace; font-size:12px; color:var(--ink-soft);
+    letter-spacing:.05em; margin:0 0 24px;
+  }
+  .result-actions{ display:flex; flex-direction:column; gap:0; }
 
-.sample-stamp{
-  position:absolute; top:20px; right:-36px;
-background:rgba(28,28,30,.85); color:#fff;
-font-family:'Space Mono', monospace; font-size:11px; font-weight:700;
-letter-spacing:.12em; padding:4px 42px; transform:rotate(35deg);
-pointer-events:none;
-}
+  .sample-stamp{
+    position:absolute; top:20px; right:-36px;
+    background:rgba(28,28,30,.85); color:#fff;
+    font-family:'Space Mono', monospace; font-size:11px; font-weight:700;
+    letter-spacing:.12em; padding:4px 42px; transform:rotate(35deg);
+    pointer-events:none;
+  }
 
-@media (max-width:380px){
-.big-number{ font-size:60px; }
-.stub, .body{ padding-left:24px; padding-right:24px; }
-}
+  @media (max-width:380px){
+    .big-number{ font-size:60px; }
+    .stub, .body{ padding-left:24px; padding-right:24px; }
+  }
 </style>
-  </head>
-  <body>
+</head>
+<body>
   <div class="page">
-  <div class="ticket" id="ticket">
+    <div class="ticket" id="ticket">
 
-  <!-- FORM VIEW -->
-  <div class="view" id="view-form">
-  <div class="stub">
-  <p class="eyebrow">Lucky Draw · Registration</p>
-<h1 class="event-name" id="eventName">Lucky Draw</h1>
-  <p class="event-tagline" id="eventTagline">Enter your details for a chance to win</p>
-</div>
-<div class="divider"><span class="notch notch--left"></span><span class="notch notch--right"></span></div>
-<form class="body" id="form" novalidate>
-<label class="field">
-<span class="field-label">Name</span>
-<input type="text" id="inputName" autocomplete="name" placeholder="Your full name">
-  </label>
-  <label class="field">
-  <span class="field-label">Phone number</span>
-  <input type="tel" id="inputTel" autocomplete="tel" inputmode="tel" placeholder="08X-XXX-XXXX">
-  </label>
-  <p class="form-error" id="formError" role="alert" aria-live="polite"></p>
-  <button type="submit" class="btn" id="submitBtn">Draw my number</button>
-  </form>
-  <p class="capacity" id="capacityNote">245 numbers · 4 colors</p>
-  </div>
+      <!-- FORM VIEW -->
+      <div class="view" id="view-form">
+        <div class="stub">
+          <p class="eyebrow">Lucky Draw · Registration</p>
+          <h1 class="event-name" id="eventName">SBTI Anniversary 10</h1>
+          <p class="event-tagline" id="eventTagline">Enter your details for a chance to win</p>
+        </div>
+        <div class="divider"><span class="notch notch--left"></span><span class="notch notch--right"></span></div>
+        <form class="body" id="form" novalidate>
+          <label class="field">
+            <span class="field-label">Name</span>
+            <input type="text" id="inputName" autocomplete="name" placeholder="Your full name">
+          </label>
+          <label class="field">
+            <span class="field-label">Phone number</span>
+            <input type="tel" id="inputTel" autocomplete="tel" inputmode="tel" placeholder="08X-XXX-XXXX">
+          </label>
+          <p class="form-error" id="formError" role="alert" aria-live="polite"></p>
+          <button type="submit" class="btn" id="submitBtn">Draw my number</button>
+        </form>
+        <p class="capacity" id="capacityNote">245 numbers</p>
+      </div>
 
-  <!-- RESULT VIEW -->
-  <div class="view view--hidden" id="view-result">
-  <div class="stub result-stub" id="colorBand">
-  <p class="eyebrow eyebrow--onColor">Your color</p>
-  <p class="color-name" id="colorName">RED</p>
-  </div>
-  <div class="divider"><span class="notch notch--left"></span><span class="notch notch--right"></span></div>
-  <div class="body">
-  <p class="result-status" id="resultStatus">You're in.</p>
-  <p class="number-label">No.</p>
-  <p class="big-number" id="bigNumber">37</p>
-  <p class="holder-label">Name</p>
-  <p class="holder-name" id="holderName">—</p>
-  <p class="serial" id="serialCode">REF —</p>
-  <div class="result-actions">
-  <button class="btn" id="saveBtn">Save my ticket</button>
-<button class="btn btn--ghost" id="resetBtn">Register another</button>
-  </div>
-  </div>
-  </div>
+      <!-- RESULT VIEW -->
+      <div class="view view--hidden" id="view-result">
+        <div class="stub">
+          <p class="eyebrow">Lucky Draw · Registration</p>
+          <h1 class="event-name">You're in!</h1>
+        </div>
+        <div class="divider"><span class="notch notch--left"></span><span class="notch notch--right"></span></div>
+        <div class="body">
+          <p class="number-label">No.</p>
+          <p class="big-number" id="bigNumber">37</p>
+          <p class="holder-label">Name</p>
+          <p class="holder-name" id="holderName">—</p>
+          <p class="serial" id="serialCode">REF —</p>
+          <div class="result-actions">
+            <button class="btn" id="saveBtn">Save my ticket</button>
+            <button class="btn btn--ghost" id="resetBtn">Register another</button>
+          </div>
+        </div>
+      </div>
 
-  <div class="sample-stamp" id="sampleStamp" hidden>SAMPLE</div>
-  </div>
-  <p class="footnote">Your entry is saved to the event's registration sheet.</p>
+      <div class="sample-stamp" id="sampleStamp" hidden>SAMPLE</div>
+    </div>
+    <p class="footnote">Your entry is saved to the event's registration sheet.</p>
   </div>
 
   <canvas id="ticketCanvas" style="display:none;"></canvas>
 
-  <script>
-  /* ============================================================
-  CONFIG — edit these before the event
-============================================================ */
+<script>
   const CONFIG = {
-  SCRIPT_URL: 'https://script.google.com/macros/s/AKfycbypzQRr-uMbIfQN72y97Id3raWWoJ8tNNphPv_ACemftj54UNrM3_oEhfhLI_HBNAwO/exec',
-  EVENT_NAME: 'SBTI Anniversary 10',
-  EVENT_TAGLINE: 'Enter your details for a chance to win',
-  RANGES: { Red: 60, Yellow: 60, Blue: 60, Green: 65 }
-};
+    SCRIPT_URL: 'https://script.google.com/macros/s/AKfycbypzQRr-uMbIfQN72y97Id3raWWoJ8tNNphPv_ACemftj54UNrM3_oEhfhLI_HBNAwO/exec',
+    EVENT_NAME: 'SBTI Anniversary 10',
+    EVENT_TAGLINE: 'Enter your details for a chance to win',
+    TOTAL_NUMBERS: 245
+  };
 
-const COLOR_HEX = { Red:'#DC2F3F', Yellow:'#EFB61D', Blue:'#2F6FED', Green:'#1E9E5A' };
-const isDemo = !CONFIG.SCRIPT_URL;
+  const isDemo = !CONFIG.SCRIPT_URL;
 
-document.getElementById('eventName').textContent = CONFIG.EVENT_NAME;
-document.getElementById('eventTagline').textContent = CONFIG.EVENT_TAGLINE;
+  document.getElementById('eventName').textContent = CONFIG.EVENT_NAME;
+  document.getElementById('eventTagline').textContent = CONFIG.EVENT_TAGLINE;
 
-const form = document.getElementById('form');
-const submitBtn = document.getElementById('submitBtn');
-const formError = document.getElementById('formError');
-const capacityNote = document.getElementById('capacityNote');
-const sampleStamp = document.getElementById('sampleStamp');
+  const form = document.getElementById('form');
+  const submitBtn = document.getElementById('submitBtn');
+  const formError = document.getElementById('formError');
+  const capacityNote = document.getElementById('capacityNote');
+  const sampleStamp = document.getElementById('sampleStamp');
 
-if (isDemo) {
-sampleStamp.hidden = false;
-capacityNote.textContent = 'Preview mode — connect Google Sheets to save real entries';
-} else {
-loadRemaining();
-}
+  if (isDemo) {
+    sampleStamp.hidden = false;
+    capacityNote.textContent = 'Preview mode — connect Google Sheets to save real entries';
+  } else {
+    loadRemaining();
+  }
 
-async function loadRemaining(){
-try{
-const res = await fetch(CONFIG.SCRIPT_URL, { method:'GET' });
-const data = await res.json();
-if (data && data.remaining) {
-const total = Object.values(data.remaining).reduce((a,b)=>a+b, 0);
-capacityNote.textContent = total + ' numbers remaining';
-}
-} catch(err){ }
-}
+  async function loadRemaining(){
+    try{
+      const res = await fetch(CONFIG.SCRIPT_URL, { method:'GET' });
+      const data = await res.json();
+      if (data && typeof data.remaining === 'number') {
+        capacityNote.textContent = data.remaining + ' numbers remaining';
+      }
+    } catch(err){ }
+  }
 
-form.addEventListener('submit', async (evt) => {
-evt.preventDefault();
-formError.textContent = '';
+  form.addEventListener('submit', async (evt) => {
+    evt.preventDefault();
+    formError.textContent = '';
 
-const name = document.getElementById('inputName').value.trim();
-const tel = document.getElementById('inputTel').value.trim();
-const telDigits = tel.replace(/\D/g,'');
+    const name = document.getElementById('inputName').value.trim();
+    const tel = document.getElementById('inputTel').value.trim();
+    const telDigits = tel.replace(/\D/g,'');
 
-if (!name){ formError.textContent = 'Enter your name to continue.'; return; }
-if (telDigits.length < 8){ formError.textContent = 'Enter a valid phone number.'; return; }
+    if (!name){ formError.textContent = 'Enter your name to continue.'; return; }
+    if (telDigits.length < 8){ formError.textContent = 'Enter a valid phone number.'; return; }
 
-submitBtn.disabled = true;
-submitBtn.textContent = 'Drawing…';
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Drawing…';
 
-try{
-const result = isDemo ? await demoDraw() : await liveDraw(name, tel);
-if (result.error){
-formError.textContent = errorMessage(result.error);
-submitBtn.disabled = false;
-submitBtn.textContent = 'Draw my number';
-return;
-}
-showResult({ name, tel, color:result.color, number:result.number, existing:!!result.existing });
-} catch(err){
-formError.textContent = "Couldn't reach the registration sheet. Check your connection and try again.";
-submitBtn.disabled = false;
-submitBtn.textContent = 'Draw my number';
-}
-});
+    try{
+      const result = isDemo ? await demoDraw() : await liveDraw(name, tel);
+      if (result.error){
+        formError.textContent = errorMessage(result.error);
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Draw my number';
+        return;
+      }
+      showResult({ name, tel, number:result.number });
+    } catch(err){
+      formError.textContent = "Couldn't reach the registration sheet. Check your connection and try again.";
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Draw my number';
+    }
+  });
 
-function errorMessage(code){
-if (code === 'sold_out') return 'All numbers have been claimed. Thanks for your interest!';
-if (code === 'missing_fields') return 'Enter your name and phone number to continue.';
-  if (code === 'duplicate_phone') return 'This phone number is already registered. Each phone number can only register once.';
-return 'Something went wrong on our end. Please try again.';
-}
+  function errorMessage(code){
+    if (code === 'sold_out') return 'All numbers have been claimed. Thanks for your interest!';
+    if (code === 'missing_fields') return 'Enter your name and phone number to continue.';
+    if (code === 'duplicate_phone') return 'This phone number is already registered. Each phone number can only register once.';
+    return 'Something went wrong on our end. Please try again.';
+  }
 
-async function liveDraw(name, tel){
-const res = await fetch(CONFIG.SCRIPT_URL, {
-method:'POST',
-headers:{ 'Content-Type':'text/plain;charset=utf-8' },
-body: JSON.stringify({ name, tel })
-});
-return res.json();
-}
+  async function liveDraw(name, tel){
+    const res = await fetch(CONFIG.SCRIPT_URL, {
+      method:'POST',
+      headers:{ 'Content-Type':'text/plain;charset=utf-8' },
+      body: JSON.stringify({ name, tel })
+    });
+    return res.json();
+  }
 
-async function demoDraw(){
-await new Promise(r => setTimeout(r, 500));
-const colors = Object.keys(CONFIG.RANGES);
-const color = colors[Math.floor(Math.random() * colors.length)];
-const number = Math.floor(Math.random() * CONFIG.RANGES[color]) + 1;
-return { color, number, existing:false };
-}
+  async function demoDraw(){
+    await new Promise(r => setTimeout(r, 500));
+    const number = Math.floor(Math.random() * CONFIG.TOTAL_NUMBERS) + 1;
+    return { number };
+  }
 
-let lastResult = null;
+  let lastResult = null;
 
-function showResult({ name, tel, color, number, existing }){
-lastResult = { name, tel, color, number };
-const hex = COLOR_HEX[color];
-document.getElementById('colorBand').style.background = hex;
-document.getElementById('colorName').textContent = color.toUpperCase();
-document.getElementById('resultStatus').textContent = existing ? "Welcome back — here's your ticket." : "You're in.";
-document.getElementById('bigNumber').textContent = String(number).padStart(2,'0');
-document.getElementById('holderName').textContent = name;
-document.getElementById('serialCode').textContent = 'REF ' + serialCode(color, number, tel);
-document.getElementById('view-form').classList.add('view--hidden');
-document.getElementById('view-result').classList.remove('view--hidden');
-}
+  function showResult({ name, tel, number }){
+    lastResult = { name, tel, number };
+    document.getElementById('bigNumber').textContent = String(number).padStart(3,'0');
+    document.getElementById('holderName').textContent = name;
+    document.getElementById('serialCode').textContent = 'REF ' + serialCode(number, tel);
+    document.getElementById('view-form').classList.add('view--hidden');
+    document.getElementById('view-result').classList.remove('view--hidden');
+  }
 
-function serialCode(color, number, tel){
-const c = color[0].toUpperCase();
-const t = tel.replace(/\D/g,'').slice(-4);
-return c + String(number).padStart(2,'0') + '-' + t;
-}
+  function serialCode(number, tel){
+    const t = tel.replace(/\D/g,'').slice(-4);
+    return String(number).padStart(3,'0') + '-' + t;
+  }
 
-document.getElementById('resetBtn').addEventListener('click', () => {
-form.reset();
-submitBtn.disabled = false;
-submitBtn.textContent = 'Draw my number';
-document.getElementById('view-result').classList.add('view--hidden');
-document.getElementById('view-form').classList.remove('view--hidden');
-});
+  document.getElementById('resetBtn').addEventListener('click', () => {
+    form.reset();
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Draw my number';
+    document.getElementById('view-result').classList.add('view--hidden');
+    document.getElementById('view-form').classList.remove('view--hidden');
+  });
 
-document.getElementById('saveBtn').addEventListener('click', saveTicketImage);
+  document.getElementById('saveBtn').addEventListener('click', saveTicketImage);
 
-async function saveTicketImage(){
-if (!lastResult) return;
-await drawTicketCanvas(lastResult);
-const canvas = document.getElementById('ticketCanvas');
-canvas.toBlob((blob) => {
-const url = URL.createObjectURL(blob);
-const a = document.createElement('a');
-a.href = url;
-a.download = 'lucky-draw-' + lastResult.color.toLowerCase() + '-' + lastResult.number + '.png';
-document.body.appendChild(a);
-a.click();
-a.remove();
-URL.revokeObjectURL(url);
-}, 'image/png');
-}
+  async function saveTicketImage(){
+    if (!lastResult) return;
+    await drawTicketCanvas(lastResult);
+    const canvas = document.getElementById('ticketCanvas');
+    canvas.toBlob((blob) => {
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'lucky-draw-' + lastResult.number + '.png';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    }, 'image/png');
+  }
 
-async function drawTicketCanvas({ name, tel, color, number }){
-const hex = COLOR_HEX[color];
-const canvas = document.getElementById('ticketCanvas');
-const W = 900, H = 1300;
-canvas.width = W; canvas.height = H;
-const ctx = canvas.getContext('2d');
+  async function drawTicketCanvas({ name, tel, number }){
+    const canvas = document.getElementById('ticketCanvas');
+    const W = 900, H = 1200;
+    canvas.width = W; canvas.height = H;
+    const ctx = canvas.getContext('2d');
 
-try{
-await Promise.all([
-document.fonts.load('700 180px "Space Mono"'),
-document.fonts.load('400 28px "Space Mono"'),
-document.fonts.load('700 40px "Space Mono"'),
-document.fonts.load('600 40px "Inter"'),
-document.fonts.load('400 26px "Inter"')
-]);
-} catch(e){ }
+    try{
+      await Promise.all([
+        document.fonts.load('700 200px "Space Mono"'),
+        document.fonts.load('400 26px "Space Mono"'),
+        document.fonts.load('600 44px "Inter"'),
+        document.fonts.load('400 24px "Inter"')
+      ]);
+    } catch(e){ }
 
-ctx.fillStyle = '#F5F6F3';
-ctx.fillRect(0, 0, W, H);
+    ctx.fillStyle = '#F5F6F3';
+    ctx.fillRect(0, 0, W, H);
 
-const pad = 50, cardX = pad, cardY = pad, cardW = W - pad*2, cardH = H - pad*2;
-roundRectPath(ctx, cardX, cardY, cardW, cardH, 28);
-ctx.fillStyle = '#FFFFFF'; ctx.fill();
-ctx.lineWidth = 2; ctx.strokeStyle = '#E4E2DC'; ctx.stroke();
+    const pad = 50, cardX = pad, cardY = pad, cardW = W - pad*2, cardH = H - pad*2;
+    roundRectPath(ctx, cardX, cardY, cardW, cardH, 28);
+    ctx.fillStyle = '#FFFFFF'; ctx.fill();
+    ctx.lineWidth = 2; ctx.strokeStyle = '#E4E2DC'; ctx.stroke();
 
-const bandH = 260;
-roundRectPath(ctx, cardX, cardY, cardW, bandH, [28,28,0,0]);
-ctx.fillStyle = hex; ctx.fill();
+    ctx.fillStyle = '#6B6A66';
+    ctx.font = '400 24px "Space Mono", monospace';
+    ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
+    ctx.fillText('LUCKY DRAW · REGISTRATION', cardX + 60, cardY + 80);
 
-ctx.fillStyle = 'rgba(255,255,255,.85)';
-ctx.font = '400 24px "Space Mono", monospace';
-ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-ctx.fillText('YOUR COLOR', W/2, cardY + bandH/2 - 30);
+    ctx.fillStyle = '#1C1C1E';
+    ctx.font = '600 44px "Inter", sans-serif';
+    ctx.fillText(CONFIG.EVENT_NAME, cardX + 60, cardY + 135);
 
-ctx.fillStyle = '#FFFFFF';
-ctx.font = '700 46px "Space Mono", monospace';
-ctx.fillText(color.toUpperCase(), W/2, cardY + bandH/2 + 20);
+    const divY = cardY + 190;
+    ctx.fillStyle = '#F5F6F3';
+    ctx.beginPath(); ctx.arc(cardX, divY, 26, 0, Math.PI*2); ctx.fill();
+    ctx.beginPath(); ctx.arc(cardX + cardW, divY, 26, 0, Math.PI*2); ctx.fill();
+    ctx.strokeStyle = '#D8D6CE'; ctx.lineWidth = 3; ctx.setLineDash([10,10]);
+    ctx.beginPath(); ctx.moveTo(cardX+30, divY); ctx.lineTo(cardX+cardW-30, divY); ctx.stroke();
+    ctx.setLineDash([]);
 
-const divY = cardY + bandH;
-ctx.fillStyle = '#F5F6F3';
-ctx.beginPath(); ctx.arc(cardX, divY, 26, 0, Math.PI*2); ctx.fill();
-ctx.beginPath(); ctx.arc(cardX + cardW, divY, 26, 0, Math.PI*2); ctx.fill();
-ctx.strokeStyle = '#D8D6CE'; ctx.lineWidth = 3; ctx.setLineDash([10,10]);
-ctx.beginPath(); ctx.moveTo(cardX+30, divY); ctx.lineTo(cardX+cardW-30, divY); ctx.stroke();
-ctx.setLineDash([]);
+    ctx.fillStyle = '#6B6A66';
+    ctx.font = '400 26px "Space Mono", monospace';
+    ctx.fillText('NO.', cardX + 60, divY + 90);
 
-ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
-ctx.fillStyle = '#6B6A66';
-ctx.font = '400 26px "Space Mono", monospace';
-ctx.fillText('NO.', cardX + 60, divY + 90);
+    ctx.fillStyle = '#1C1C1E';
+    ctx.font = '700 200px "Space Mono", monospace';
+    ctx.fillText(String(number).padStart(3,'0'), cardX + 55, divY + 290);
 
-ctx.fillStyle = '#1C1C1E';
-ctx.font = '700 180px "Space Mono", monospace';
-ctx.fillText(String(number).padStart(2,'0'), cardX + 55, divY + 250);
+    ctx.fillStyle = '#6B6A66';
+    ctx.font = '400 24px "Inter", sans-serif';
+    ctx.fillText('NAME', cardX + 60, divY + 360);
 
-ctx.fillStyle = '#6B6A66';
-ctx.font = '400 24px "Inter", sans-serif';
-ctx.fillText('NAME', cardX + 60, divY + 320);
+    ctx.fillStyle = '#1C1C1E';
+    ctx.font = '600 38px "Inter", sans-serif';
+    ctx.fillText(name, cardX + 60, divY + 405);
 
-ctx.fillStyle = '#1C1C1E';
-ctx.font = '600 38px "Inter", sans-serif';
-ctx.fillText(name, cardX + 60, divY + 365);
+    ctx.fillStyle = '#6B6A66';
+    ctx.font = '400 22px "Space Mono", monospace';
+    ctx.textAlign = 'right';
+    ctx.fillText('REF ' + serialCode(number, tel), cardX + cardW - 60, cardY + cardH - 50);
 
-ctx.fillStyle = '#6B6A66';
-ctx.font = '400 22px "Space Mono", monospace';
-ctx.fillText(CONFIG.EVENT_NAME.toUpperCase(), cardX + 60, cardY + cardH - 50);
+    if (isDemo){
+      ctx.save();
+      ctx.translate(W/2, H/2);
+      ctx.rotate(-Math.PI/10);
+      ctx.globalAlpha = 0.15;
+      ctx.fillStyle = '#1C1C1E';
+      ctx.font = '700 110px "Space Mono", monospace';
+      ctx.textAlign = 'center';
+      ctx.fillText('SAMPLE', 0, 0);
+      ctx.restore();
+    }
+  }
 
-ctx.textAlign = 'right';
-ctx.fillText('REF ' + serialCode(color, number, tel), cardX + cardW - 60, cardY + cardH - 50);
-
-if (isDemo){
-ctx.save();
-ctx.translate(W/2, H/2);
-ctx.rotate(-Math.PI/10);
-ctx.globalAlpha = 0.15;
-ctx.fillStyle = '#1C1C1E';
-ctx.font = '700 110px "Space Mono", monospace';
-ctx.textAlign = 'center';
-ctx.fillText('SAMPLE', 0, 0);
-ctx.restore();
-}
-}
-
-function roundRectPath(ctx, x, y, w, h, r){
-const radii = Array.isArray(r) ? r : [r,r,r,r];
-const [tl,tr,br,bl] = radii;
-ctx.beginPath();
-ctx.moveTo(x+tl, y);
-ctx.lineTo(x+w-tr, y);
-ctx.arcTo(x+w, y, x+w, y+tr, tr);
-ctx.lineTo(x+w, y+h-br);
-ctx.arcTo(x+w, y+h, x+w-br, y+h, br);
-ctx.lineTo(x+bl, y+h);
-ctx.arcTo(x, y+h, x, y+h-bl, bl);
-ctx.lineTo(x, y+tl);
-ctx.arcTo(x, y, x+tl, y, tl);
-ctx.closePath();
-}
+  function roundRectPath(ctx, x, y, w, h, r){
+    const radii = Array.isArray(r) ? r : [r,r,r,r];
+    const [tl,tr,br,bl] = radii;
+    ctx.beginPath();
+    ctx.moveTo(x+tl, y);
+    ctx.lineTo(x+w-tr, y);
+    ctx.arcTo(x+w, y, x+w, y+tr, tr);
+    ctx.lineTo(x+w, y+h-br);
+    ctx.arcTo(x+w, y+h, x+w-br, y+h, br);
+    ctx.lineTo(x+bl, y+h);
+    ctx.arcTo(x, y+h, x, y+h-bl, bl);
+    ctx.lineTo(x, y+tl);
+    ctx.arcTo(x, y, x+tl, y, tl);
+    ctx.closePath();
+  }
 </script>
 </body>
 </html>
